@@ -106,7 +106,7 @@
                     <div class="result-item"><span>Initial Budget:</span><span id="buyInitialBudget">€300,000</span></div>
                     <div class="result-item"><span>Purchase Price (net of closing):</span><span id="purchasePrice">€0</span></div>
                     <div class="result-item"><span>Total Maintenance & Fees Paid:</span><span id="totalMaintenance">€0</span></div>
-                    <div class="result-item"><span>Gross Property Value (2051):</span><span id="propertyValue" class="final-value">€0</span></div>
+                    <div class="result-item"><span>Gross Property Value (<span id="propertyEndYear">2051</span>):</span><span id="propertyValue" class="final-value">€0</span></div>
                     <div class="result-item"><span>Net Sale Proceeds (after selling cost):</span><span id="saleProceeds" class="final-value">€0</span></div>
                     <div class="result-item"><span>Net Worth (After Costs):</span><span id="buyNetWorth" class="final-value">€0</span></div>
                 </div>
@@ -143,7 +143,7 @@
                     <div class="result-item"><span>Initial Investment:</span><span id="rentInitialInvestment">€300,000</span></div>
                     <div class="result-item"><span>Starting Monthly Rent:</span><span id="startingRentEcho">€1,000</span></div>
                     <div class="result-item"><span>Total Rent Paid:</span><span id="totalRent">€0</span></div>
-                    <div class="result-item"><span>Portfolio Value (2051):</span><span id="portfolioValue" class="final-value">€0</span></div>
+                    <div class="result-item"><span>Portfolio Value (<span id="portfolioEndYear">2051</span>):</span><span id="portfolioValue" class="final-value">€0</span></div>
                 </div>
             </div>
         </div>
@@ -276,7 +276,7 @@
 
             const roi = (Math.max(buyNW, port) / initialCapital - 1) * 100;
             const label = port > buyNW ? 'Rent & Invest' : 'Buy Property';
-            document.getElementById('summaryText').textContent = `The ${label} strategy yields ${percentDiff}% more wealth after 25 years (${roi.toFixed(1)}% total return).`;
+            document.getElementById('summaryText').textContent = `The ${label} strategy yields ${percentDiff}% more wealth after ${years} years (${roi.toFixed(1)}% total return).`;
         }
 
         function updateChart(buyValues, rentValues) {
@@ -383,6 +383,12 @@
             // Update range value displays
             document.getElementById('initialBudgetValue').textContent = formatEuro(initialCapital);
             document.getElementById('projectionYearsValue').textContent = years;
+
+            // Update end year displays
+            const currentYear = new Date().getFullYear();
+            const endYear = currentYear + years;
+            document.getElementById('propertyEndYear').textContent = endYear;
+            document.getElementById('portfolioEndYear').textContent = endYear;
 
             // Update budget displays
             document.getElementById('buyInitialBudget').textContent = formatEuro(initialCapital);

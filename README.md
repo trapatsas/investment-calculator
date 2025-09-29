@@ -20,7 +20,7 @@ A comprehensive financial calculator to compare buying property vs renting and i
 
 ## 🚀 Live Demo
 
-Visit: [Your GitHub Pages URL will be here]
+Visit: **https://trapatsas.github.io/investment-calculator/**
 
 ## 📊 Default Parameters
 

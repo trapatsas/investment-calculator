@@ -428,7 +428,7 @@
         }
 
         // Event listeners
-        ['propertyAppreciation','maintenanceCost','stockReturn','rentIncrease'].forEach(id => {
+        ['propertyAppreciation','maintenanceCost','buildingDepreciation','stockReturn','rentIncrease'].forEach(id => {
             document.getElementById(id).addEventListener('input', calculateScenarios);
         });
         ['buyClosingCost','sellCost','fixedFees','startingRent','stopAtZero'].forEach(id => {
